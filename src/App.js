@@ -1,7 +1,7 @@
 import './Appa.css';
 import React,{useState} from 'react'
 
-//import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
@@ -49,7 +49,7 @@ function App() {
             <Alert alert={alert}/>
             <div className="container my-3">
             <TextForm showAlert={showAlert} heading="Enter the text to analyze below" color={color} mode={mode}/>
-            {/*<About ></About>*/}
+            <About ></About>
             </div>   
         </>
     );
