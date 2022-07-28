@@ -1,17 +1,17 @@
 import './Appa.css';
 import React,{useState} from 'react'
 
-import About from './components/About';
+//import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 // change class= to "className="
 // change href="#" to href="/"
-import {
+/*import {
     BrowserRouter as Router,
     Switch,
     Route
-} from "react-router-dom";
+} from "react-router-dom";*/
 
 function App() {
     const [mode, setMode]= useState('light'); //whether dark mode is enable or not\
@@ -51,20 +51,21 @@ function App() {
 
     return (
         <>
-        <Router>
+        {/*<Router>*/}
             <Navbar title="TextUtils" aboutText="About TextUtils" color={color} mode={mode} toggleMode={toggleMode} colorChanger={colorChanger}/>
             <Alert alert={alert}/>
             <div className="container my-3">
-            <Switch>
+        {/*<Switch>
           <Route exact path="/about">
             <About/>
           </Route>
-          <Route exact path="/">
+          <Route exact path="/">*/}
             <TextForm showAlert={showAlert} heading="Enter the text to analyze below" color={color} mode={mode}/>
-          </Route>
+          {/*</Route>
             </Switch>
-            </div>
-        </Router>
+
+        </Router>*/}
+        </div>
         </>
     );
 }
