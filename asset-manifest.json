@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Xander1540/TextUtils/static/css/main.bcdd7a25.css",
+    "main.js": "/Xander1540/TextUtils/static/js/main.68a56e76.js",
+    "static/js/787.719ec76d.chunk.js": "/Xander1540/TextUtils/static/js/787.719ec76d.chunk.js",
+    "index.html": "/Xander1540/TextUtils/index.html",
+    "main.bcdd7a25.css.map": "/Xander1540/TextUtils/static/css/main.bcdd7a25.css.map",
+    "main.68a56e76.js.map": "/Xander1540/TextUtils/static/js/main.68a56e76.js.map",
+    "787.719ec76d.chunk.js.map": "/Xander1540/TextUtils/static/js/787.719ec76d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bcdd7a25.css",
+    "static/js/main.68a56e76.js"
+  ]
+}
