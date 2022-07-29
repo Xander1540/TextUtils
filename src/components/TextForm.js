@@ -33,6 +33,7 @@ const handleFkClick= () =>{
     var text= document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied!", "success")
   }
 
@@ -43,21 +44,21 @@ const handleFkClick= () =>{
   return (
     <>
     <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}>
-      <h1>{props.heading}</h1>
+      <h1 className="mb-4">{props.heading}</h1>
       <div className="mb-3">                     { /* value={text} therefore you can not input anything so we create handleOnChange (event handler)*/}
-        <textarea className="form-control" style={{backgroundColor: props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'black'}} value= {text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+        <textarea className="form-control" style={{backgroundColor: props.mode==='dark'?'#13466e':'white', color: props.mode==='dark'?'white':'black'}} value= {text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
       </div>
-        <button className="btn btn-sm btn-primary mx-2" onClick={handleUpClick} >Convert to UpperCase</button>
-        <button className="btn btn-sm btn-primary mx-2" onClick={handleLoClick} >Convert to LowerCase</button>
-        <button className="btn btn-sm btn-primary mx-2" onClick={handleFkClick} >Erase</button>
-        <button className="btn btn-sm btn-primary mx-2 my-2" onClick={handleCopy} >Copy</button>
+        <button disabled={text.length===0} className="btn btn-sm btn-primary mx-2 my-2" onClick={handleUpClick} >Convert to UpperCase</button>
+        <button disabled={text.length===0} className="btn btn-sm btn-primary mx-2 my-2" onClick={handleLoClick} >Convert to LowerCase</button>
+        <button disabled={text.length===0} className="btn btn-sm btn-primary mx-2 my2" onClick={handleFkClick} >Erase</button>
+        <button disabled={text.length===0} className="btn btn-sm btn-primary mx-2 my-2" onClick={handleCopy} >Copy</button>
     </div>
     <div className="container my-2" style={{color: props.mode==='dark'?'white':'#042743'}}>
-      <h2>Your text summary</h2>
-      <p>{text.split(" ").length} words and {text.length} characters</p>
-      <p>{0.008* text.split(" ").length} minutes to read</p>
+      <h2>Your text summary</h2>{/*filter() is used to filter element that is in array if function returns true.*/}
+      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+      <p>{0.008* text.split(" ").filter((element)=>{return element.length!==0}).length} minutes to read</p>
       <h3>Preview</h3>
-      <p>{text.length>0?text:"Enter something in the textbox above to preview it here."}</p>
+      <p>{text.length>0?text:"Nothing to preview."}</p>
     </div> 
     </>
   );

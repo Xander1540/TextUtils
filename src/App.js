@@ -1,22 +1,23 @@
 import './Appa.css';
 import React,{useState} from 'react'
 
-//import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 // change class= to "className="
 // change href="#" to href="/"
-/*import {
+// href to to
+import {
     BrowserRouter as Router,
     Switch,
     Route
-} from "react-router-dom";*/
+} from "react-router-dom";
 
 function App() {
     const [mode, setMode]= useState('light'); //whether dark mode is enable or not\
     const [alert, setAlert]=useState(null);
-    const [color, setColor]=useState('white');
+    //const [color, setColor]=useState('white');
 
     const showAlert=(message,type)=>{
         setAlert({
@@ -28,44 +29,43 @@ function App() {
         }, 1500);
     }
 
-    const colorChanger= () =>{
+    {/*const colorChanger= () =>{
         if(color==='cyan'){
             setColor(document.body.style.backgroundColor='white');
         }else{
         setColor(document.body.style.backgroundColor='cyan');
         showAlert("Cyan mode enabled!", "success")
         }
-    }
+    }*/}
 
     const toggleMode=()=>{
-        if(mode==='dark'){
-            setMode('light');
-            document.body.style.backgroundColor='white';
-            showAlert("Light mode has been enabled.", "success")
-        }else{
+        if(mode==='light'){
             setMode('dark');
             document.body.style.backgroundColor='#042743';
             showAlert("Dark mode has been enabled.", "success")
+        }else{
+            setMode('light');
+            document.body.style.backgroundColor='white';
+            showAlert("Light mode has been enabled.", "success")
         }
     }
 
     return (
         <>
-        {/*<Router>*/}
-            <Navbar title="TextUtils" aboutText="About TextUtils" color={color} mode={mode} toggleMode={toggleMode} colorChanger={colorChanger}/>
+        <Router>
+            <Navbar title="TextUtils" aboutText="About TextUtils" mode={mode} toggleMode={toggleMode}/>
             <Alert alert={alert}/>
             <div className="container my-3">
-        {/*<Switch>
+        <Switch>
           <Route exact path="/about">
-            <About/>
+            <About mode={mode}/>
           </Route>
-          <Route exact path="/">*/}
-            <TextForm showAlert={showAlert} heading="Enter the text to analyze below" color={color} mode={mode}/>
-          {/*</Route>
+          <Route exact path="/">
+            <TextForm showAlert={showAlert} heading="Try TextUtils- Word Counter, Character Counter" mode={mode}/>
+          </Route>
             </Switch>
-
-        </Router>*/}
-        </div>
+            </div>
+        </Router>
         </>
     );
 }
